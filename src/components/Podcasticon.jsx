@@ -1,5 +1,5 @@
-import {MicIcon} from "./Icons";
-import {CoffeeIcon} from  "./Icons";
+import {MicIcon} from "../icons/Icons";
+import {CoffeeIcon} from  "../icons/Icons";
 
 function PodcastIcon({ type }) {
   return (
