@@ -1,0 +1,57 @@
+@use '../../styles/variables' as *;
+
+.job-card {
+  background: #fff;
+  border: 1px solid #bfc6d2;
+  border-radius: 7px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  min-height: 210px;
+  box-sizing: border-box;
+}
+
+.job-card-title {
+  color: #1d5fbf;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  line-height: 1.2;
+  border-bottom: 1px solid #d9d9d9;
+}
+
+.job-card-field {
+  margin: 8px 0;
+  font-size: 15px;
+  color: #333;
+  line-height: 1.4;
+
+  .bold {
+    font-weight: 700;
+    color: #222;
+  }
+}
+
+.job-card-actions {
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid #d9d9d9;
+  display: flex;
+  gap: 20px;
+}
+
+.job-card-action {
+  background: transparent;
+  border: none;
+  padding: 0;
+  color: #1d5fbf;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

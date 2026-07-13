@@ -1,0 +1,35 @@
+@use '../variables.scss' as *;
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(240, 242, 247, 0.85);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+  animation: modal-fade 0.2s ease;
+}
+
+/* Wrapper — no bg, holds header + card */
+.modal-box {
+  width: 100%;
+  max-width: 460px;
+  animation: modal-slide-up 0.22s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@keyframes modal-fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes modal-slide-up {
+  from { transform: translateY(20px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
