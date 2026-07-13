@@ -1,0 +1,59 @@
+// ─── Tooltip Base ───────────────────────────────────────────────
+.tip-fixed {
+  position: fixed;
+  background: #111;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.5;
+  padding: 6px 12px;
+  border-radius: 6px;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+
+  // ─── Arrow Base ─────────────────────────────────────────────
+  &::after {
+    content: '';
+    position: absolute;
+    border: 5px solid transparent;
+  }
+
+  // ─── Arrow Directions ───────────────────────────────────────
+  &.arrow-top::after {
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-top-color: #111;
+  }
+
+  &.arrow-bottom::after {
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-bottom-color: #111;
+  }
+
+  &.arrow-left::after {
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    border-left-color: #111;
+  }
+
+  &.arrow-right::after {
+    right: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    border-right-color: #111;
+  }
+
+  // ─── Visible State ──────────────────────────────────────────
+  &.tip-visible {
+    opacity: 1;
+    visibility: visible;
+  }
+}

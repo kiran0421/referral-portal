@@ -1,0 +1,42 @@
+@use '../variables' as *;
+@use '../breakpoints' as *;
+
+@mixin card($border-color, $hover-border, $shadow-color, $background, $heading) {
+  background-color: $background;
+  color: $color-text;
+  border: 1px solid $border-color;
+  border-radius: $radius-md;
+  transition: all 0.25s ease;
+  .heading {
+    color: $heading;
+  }
+  &:hover {
+    border-color: $hover-border;
+    box-shadow: 0 4px 12px $shadow-color;
+    transform: translateY(-2px);
+  }
+}
+
+@mixin divider($border-color, $hover-border){
+    height: 1px; background-color: $border-color;
+    &:hover {
+        height: 1px; background-color: $hover-border;
+    }
+}
+
+.card { @include card($border, $border-hover, $shadow, $white, $color-heading);}
+.card-primary { @include card($primary-border, $primary-border-dark, $shadow, $primary-lighter,$primary-dark);}
+.card-secondary { @include card($secondary-border, $secondary-border-dark, $shadow, $secondary-lighter,$secondary-dark);}
+.card-success { @include card($success-border, $success-border-dark, $shadow, $success-lighter,$success-dark);}
+.card-danger { @include card($danger-border, $danger-border-dark, $shadow, $danger-lighter,$danger-dark);}
+.card-warning { @include card($warning-border, $warning-border-dark, $shadow, $warning-lighter,$warning-dark);}
+.card-info { @include card($info-border, $info-border-dark, $shadow, $info-lighter, $info-dark);}
+
+.divider { @include divider($border, $border-hover) }
+.divider-primary { @include divider($primary-border, $primary-border-dark) }
+.divider-secondary { @include divider($secondary-border, $secondary-border-dark) }
+.divider-success { @include divider($success-border, $success-border-dark) }
+.divider-danger { @include divider($danger-border, $danger-border-dark) }
+.divider-warning { @include divider($warning-border, $warning-border-dark) }
+.divider-info { @include divider($info-border, $info-border-dark) }
+

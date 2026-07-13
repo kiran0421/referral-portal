@@ -1,0 +1,87 @@
+@use '../styles/variables' as *;
+@use '../styles/breakpoints' as *;
+
+.dashboard {
+  background: #f5f5f5;
+  min-height: 100vh;
+}
+
+/* Hero Section */
+.dashboard-hero {
+  background: linear-gradient(135deg, #0b1633, #163a7a 55%, #2f5bb8);
+  height: 180px;
+  display: flex;
+  align-items: center;
+}
+.dashboard-hero-inner {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start; // Left align
+  align-items: center;
+}
+
+.dashboard-hero-inner h1 {
+  margin: 0;
+  color: #fff;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+/* CTA Section */
+.dashboard-cta {
+  background: #efefef;
+  padding: 1.2rem 0;
+}
+
+.dashboard-cta-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+
+  p {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #222;
+  }
+}
+
+/* Button */
+.btn-primary {
+  background: #fff;
+  border: 2px solid #2f63d7;
+  color: #2f63d7;
+  border-radius: 25px;
+  padding: 0.7rem 1.6rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+
+  &:hover {
+    background: #2f63d7;
+    color: #fff;
+  }
+}
+
+/* Common Container */
+.eoe-container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+@include xs {
+  .dashboard-hero {
+    height: 140px;
+  }
+
+  .dashboard-hero h1 {
+    font-size: 2rem;
+  }
+
+  .dashboard-cta-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+}
