@@ -1,32 +1,30 @@
-import  Header  from "./components/layout/Header";
-import Dashboard from "./pages/Dashboard";
-import ShareModal from "./components/modals/ShareModal";
-import MoreInfoModal from "./components/modals/MoreInfoModal";
-import { ModalProvider, useModal } from "./context/ModalContext";
-function GlobalModals() {
-  const { infoJob, closeMoreInfo, shareJob, closeShare } = useModal();
+import Header from './components/Header/Header'
+import Banner from './components/Banner/Banner'
+import Sidebar from './components/Sidebar/Sidebar'
+import ProductGrid from './components/ProductGrid/ProductGrid'
+import Footer from './components/Footer/Footer'
+
+function App() {
+  const handleUsersClick = () => {
+    console.log('Users modal will open here — see feature/11')
+  }
+
   return (
     <>
-      {infoJob && <MoreInfoModal job={infoJob} onClose={closeMoreInfo} />}
-      {shareJob && <ShareModal job={shareJob} onClose={closeShare} />}
+      <Header onUsersClick={handleUsersClick} />
+
+      <main>
+        <Banner />
+
+        <div className="app-container app-layout">
+          <Sidebar />
+          <ProductGrid />
+        </div>
+      </main>
+
+      <Footer />
     </>
-  );
-}
-function App(){
-    const handleRecommend=()=>{
-        console.log('Recommend a friend clicked');
-        
-    }
-  return(
-    <ModalProvider>
-    <div className="app-shell">
-        <Header/>
-        <main>
-          <Dashboard/>
-        </main>
-        <GlobalModals/>
-    </div>
-</ModalProvider>
   )
 }
-export default App;
+
+export default App

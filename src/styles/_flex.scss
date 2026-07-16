@@ -1,45 +1,58 @@
 @use 'breakpoints' as * ;
 @use 'variables' as * ;
-.row {display: flex; flex-wrap: wrap;}
-.flex { display: flex; }
-.column { display: flex; flex-direction: column; }
-.flex-inline { display: inline-flex; }
-.flex-wrap { flex-wrap: wrap; }
-.flex-nowrap { flex-wrap: nowrap; }
+.row {
+    display: flex; 
+    flex-wrap: wrap;
+    --gap:0rem;
+    gap: var(--gap);
+}
+.column {
+    display: flex; 
+    flex-wrap: wrap;
+    flex-direction: column;
+    --gap:0rem;
+    gap: var(--gap);
+}
 
 @for $i from 1 through 12 { 
-    .col-#{$i} { flex: 0 0 calc((100%/12) *  #{$i}); max-width: calc((100%/12) *  #{$i});}
+    $width : calc((100% - (11 * var(--gap))) / 12 * #{$i} + (#{$i} - 1) * var(--gap));
+    .col-#{$i} { flex: 0 0 $width; max-width: $width;}
 }
+
 @include xl {
     @for $i from 1 through 12 { 
-        .col-xl-#{$i} { flex: 0 0 calc((100%/12) *  #{$i}); max-width: calc((100%/12) *  #{$i});}
+        $width : calc((100% - (11 * var(--gap))) / 12 * #{$i} + (#{$i} - 1) * var(--gap));
+        .col-xl-#{$i} { flex: 0 0 $width; max-width: $width;}
     }
 }
 @include lg {
     @for $i from 1 through 12 { 
-        .col-lg-#{$i} { flex: 0 0 calc((100%/12) *  #{$i}); max-width: calc((100%/12) *  #{$i});}
+        $width : calc((100% - (11 * var(--gap))) / 12 * #{$i} + (#{$i} - 1) * var(--gap));
+        .col-lg-#{$i} { flex: 0 0 $width; max-width: $width;}
     }
 }
 @include md {
     @for $i from 1 through 12 { 
-        .col-md-#{$i} { flex: 0 0 calc((100%/12) *  #{$i}); max-width: calc((100%/12) *  #{$i});}
+        $width : calc((100% - (11 * var(--gap))) / 12 * #{$i} + (#{$i} - 1) * var(--gap));
+        .col-md-#{$i} { flex: 0 0 $width; max-width: $width;}
     }
 }
 @include sm {
     @for $i from 1 through 12 { 
-        .col-sm-#{$i} { flex: 0 0 calc((100%/12) *  #{$i}); max-width: calc((100%/12) *  #{$i});}
+        $width : calc((100% - (11 * var(--gap))) / 12 * #{$i} + (#{$i} - 1) * var(--gap));
+        .col-sm-#{$i} { flex: 0 0 $width; max-width: $width;}
     }
 }
 @include xs {
     @for $i from 1 through 12 { 
-        .col-xs-#{$i} { flex: 0 0 calc((100%/12) *  #{$i}); max-width: calc((100%/12) *  #{$i});}
+        $width : calc((100% - (11 * var(--gap))) / 12 * #{$i} + (#{$i} - 1) * var(--gap));
+        .col-xs-#{$i} { flex: 0 0 $width; max-width: $width;}
     }
 }
 
 @for $i from 1 through 12 { 
     .flex-#{$i} { flex: #{$i} #{$i} 0; }
 }
-
 @include xl {
     @for $i from 1 through 12 { 
         .flex-xl-#{$i} { flex: #{$i} #{$i} 0; }
@@ -66,12 +79,12 @@
     }
 }
 
-@each $name, $value in $spacings { .g-#{$name} { gap: #{$value}; } }
-@include xl { @each $name, $value in $spacings { .g-xl-#{$name} { gap: #{$value}; } } }
-@include lg { @each $name, $value in $spacings { .g-lg-#{$name} { gap: #{$value}; } } }
-@include md { @each $name, $value in $spacings { .g-md-#{$name} { gap: #{$value}; } } }
-@include sm { @each $name, $value in $spacings { .g-sm-#{$name} { gap: #{$value}; } } }
-@include xs { @each $name, $value in $spacings { .g-xs-#{$name} { gap: #{$value}; } } }
+@each $name, $value in $spacings { .g-#{$name} { --gap: #{$value}; } }
+@include xl { @each $name, $value in $spacings { .g-xl-#{$name} { --gap: #{$value}; } } }
+@include lg { @each $name, $value in $spacings { .g-lg-#{$name} { --gap: #{$value}; } } }
+@include md { @each $name, $value in $spacings { .g-md-#{$name} { --gap: #{$value}; } } }
+@include sm { @each $name, $value in $spacings { .g-sm-#{$name} { --gap: #{$value}; } } }
+@include xs { @each $name, $value in $spacings { .g-xs-#{$name} { --gap: #{$value}; } } }
 
 .justify-start { justify-content: flex-start; }
 .justify-end { justify-content: flex-end; }

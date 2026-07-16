@@ -1,0 +1,21 @@
+@use '../../styles/variables' as *;
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: map-get($spacings, 5);
+  align-items: start;
+  min-height: 0; 
+
+  &__status {
+    grid-column: 1 / -1;
+    padding-block: map-get($spacings, 8);
+    text-align: center;
+    color: $color-muted;
+    font-size: map-get($font-sizes, 3);
+
+    &--error {
+      color: $danger;
+    }
+  }
+}

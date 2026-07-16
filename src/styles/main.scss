@@ -1,0 +1,54 @@
+
+@use './index' as *;
+@use './variables' as *;
+@use './breakpoints' as *;
+
+.app-container {
+  max-width: 1320px;
+  margin-inline: auto;
+  padding-inline: map-get($spacings, 6);
+
+  @include sm {
+    padding-inline: map-get($spacings, 4);
+  }
+}
+
+
+.sidebar,
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80px;
+  border: 1px dashed $border-hover;
+  border-radius: $radius-md;
+  color: $color-muted;
+  font-size: map-get($font-sizes, 2);
+}
+
+.app-layout {
+  display: flex;
+  gap: map-get($spacings, 6);
+  padding-block: map-get($spacings, 6);
+
+  .sidebar {
+  width: 240px;
+  min-width: 240px;
+  max-width: 240px;
+  min-height: 400px;
+}
+
+  .product-grid {
+    flex: 1 1 auto;
+   
+  }
+
+  @include sm {
+    flex-direction: column;
+
+    .sidebar {
+      flex-basis: auto;
+      min-height: 80px;
+    }
+  }
+}

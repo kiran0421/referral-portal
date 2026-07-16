@@ -1,0 +1,57 @@
+@use '../../styles/variables' as *;
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+
+  &__image-wrap {
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: $background;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: map-get($spacings, 3);
+    transition: transform 0.25s ease;
+  }
+
+  &:hover &__image {
+    transform: scale(1.04);
+  }
+
+  &__body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: map-get($spacings, 2);
+    padding: map-get($spacings, 4);
+  }
+
+  &__title {
+    margin: 0;
+    font-size: map-get($font-sizes, 4);
+    font-weight: 600;
+    color: $color-heading;
+  }
+
+  &__description {
+    display: -webkit-box;
+    margin: 0;
+    overflow: hidden;
+    font-size: map-get($font-sizes, 2);
+    color: $color-text-light;
+    -webkit-box-orient: vertical;
+  }
+
+  &__price {
+    margin-top: auto;
+    font-size: map-get($font-sizes, 5);
+    font-weight: 700;
+    color: $color-heading;
+  }
+}
