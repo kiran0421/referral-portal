@@ -4,3 +4,20 @@
 @mixin md { @media (min-width: #{ $breakpoint-md }) and (max-width: #{ $breakpoint-lg - 1 }) { @content; } }
 @mixin lg { @media (min-width: #{ $breakpoint-lg }) and (max-width: #{ $breakpoint-xl - 1 }) { @content; } }
 @mixin xl { @media (min-width: #{ $breakpoint-xl }) { @content; } }
+
+@include xs {
+    .abc {
+        background: red;
+    }
+    
+}
+
+.dcdd {
+    color: #000;
+    @include xs {
+        background-color: blue;
+    }
+    @include sm {
+        background-color: yellow;
+    }
+}
