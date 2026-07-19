@@ -1,0 +1,26 @@
+@use '../../styles/variables' as *;
+
+.loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: map-get($spacings, 3);
+  padding-block: map-get($spacings, 8);
+  color: $color-muted;
+  font-size: map-get($font-sizes, 3);
+
+  &__spinner {
+    width: 36px;
+    height: 36px;
+    border: 3px solid $primary-lighter;
+    border-top-color: $primary;
+    border-radius: 50%;
+    animation: loader-spin 0.7s linear infinite;
+  }
+}
+
+@keyframes loader-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

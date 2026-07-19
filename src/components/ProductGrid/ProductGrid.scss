@@ -1,21 +1,44 @@
 @use '../../styles/variables' as *;
+@use '../../styles/breakpoints' as *;
 
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   gap: map-get($spacings, 5);
   align-items: start;
   min-height: 0; 
 
-  &__status {
-    grid-column: 1 / -1;
+  grid-template-columns: repeat(1, 1fr);
+
+  @include md {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include lg {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include xl {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  &__error {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: map-get($spacings, 4);
     padding-block: map-get($spacings, 8);
     text-align: center;
+  }
+
+  &__error-text {
+    margin: 0;
+    color: $danger;
+    font-size: map-get($font-sizes, 3);
+  }
+  &__empty {
+    padding-block: map-get($spacings, 8);
     color: $color-muted;
     font-size: map-get($font-sizes, 3);
-
-    &--error {
-      color: $danger;
-    }
+    text-align: center;
   }
 }

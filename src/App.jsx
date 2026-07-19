@@ -1,28 +1,32 @@
+import { useState } from 'react'
 import Header from './components/Header/Header'
 import Banner from './components/Banner/Banner'
-import Sidebar from './components/Sidebar/Sidebar'
 import ProductGrid from './components/ProductGrid/ProductGrid'
+import UsersModal from './components/UsersModal/UsersModal'
 import Footer from './components/Footer/Footer'
 
 function App() {
-  const handleUsersClick = () => {
-    console.log('Users modal will open here — see feature/11')
-  }
+  const [isUsersModalOpen, setIsUsersModalOpen] = useState(false)
+  const [searchTerm, setSearchTerm] = useState('')
 
   return (
     <>
-      <Header onUsersClick={handleUsersClick} />
-
+      <Header
+        onUsersClick={() => setIsUsersModalOpen(true)}
+        searchTerm={searchTerm}
+        onSearchChange={setSearchTerm}
+      />
       <main>
-        <Banner />
-
+        <Banner/>
         <div className="app-container app-layout">
-          <Sidebar />
-          <ProductGrid />
+          <ProductGrid searchTerm={searchTerm} />
         </div>
       </main>
-
       <Footer />
+      <UsersModal
+        isOpen={isUsersModalOpen}
+        onClose={() => setIsUsersModalOpen(false)}
+      />
     </>
   )
 }

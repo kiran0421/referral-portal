@@ -1,0 +1,127 @@
+@use '../../styles/variables' as *;
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: rgba(240, 242, 247, 0.85);
+  backdrop-filter: blur(4px);
+}
+
+.modal-box {
+  width: 100%;
+  max-width: 800px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.users-modal {
+  width: 100%;
+  overflow: hidden;
+  background: $white;
+  border-radius: $radius-lg;
+  box-shadow: 0 20px 50px $shadow;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: map-get($spacings, 5) map-get($spacings, 6);
+    border-bottom: 1px solid $border;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: map-get($font-sizes, 6);
+    font-weight: 700;
+    color: $color-heading;
+  }
+
+  &__close {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    color: $color-text-light;
+    cursor: pointer;
+    background: $background;
+    border: none;
+    border-radius: $radius-md;
+    transition: background 0.2s ease, color 0.2s ease;
+
+    &:hover {
+      color: $danger;
+      background: $danger-lighter;
+    }
+  }
+
+  &__body {
+    width: 100%;
+    height: 70vh;
+    padding: map-get($spacings, 4) map-get($spacings, 6);
+    overflow-y: auto;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: map-get($spacings, 4);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: map-get($spacings, 4);
+    padding: map-get($spacings, 3);
+    border: 1px solid $border;
+    border-radius: $radius-md;
+  }
+
+  &__avatar {
+    flex-shrink: 0;
+    width: 52px;
+    height: 52px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+  }
+
+  &__name {
+    margin: 0;
+    font-size: map-get($font-sizes, 3);
+    font-weight: 600;
+    color: $color-heading;
+  }
+
+  &__meta {
+    margin: 0;
+    overflow: hidden;
+    font-size: map-get($font-sizes, 1);
+    color: $color-text-light;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  &__error {
+    padding-block: map-get($spacings, 8);
+    color: $danger;
+    text-align: center;
+  }
+}

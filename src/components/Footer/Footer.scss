@@ -1,0 +1,125 @@
+@use '../../styles/variables' as *;
+@use '../../styles/breakpoints' as *;
+
+.footer {
+  color: $white;
+  background: $color-heading;
+
+  &__inner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: map-get($spacings, 8);
+    justify-content: space-between;
+    padding-block: map-get($spacings, 8);
+
+    @include xs {
+      flex-direction: column;
+      gap: map-get($spacings, 6);
+    }
+    @include sm {
+      flex-direction: column;
+      gap: map-get($spacings, 6);
+    }
+  }
+
+  &__brand {
+    display: flex;
+    flex: 1 1 260px;
+    flex-direction: column;
+    gap: map-get($spacings, 3);
+    max-width: 320px;
+  }
+
+  &__logo {
+    font-size: map-get($font-sizes, 6);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+
+  &__tagline {
+    margin: 0;
+    color: $border-hover;
+    font-size: map-get($font-sizes, 2);
+    line-height: 1.5;
+  }
+
+  &__socials {
+    display: flex;
+    gap: map-get($spacings, 3);
+  }
+
+  &__social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    color: $white;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 50%;
+    transition: background 0.2s ease, color 0.2s ease;
+
+    &:hover {
+      color: $color-heading;
+      background: $primary;
+    }
+  }
+
+  &__columns {
+    display: flex;
+    flex: 2 1 480px;
+    flex-wrap: wrap;
+    gap: map-get($spacings, 7);
+
+    @include xs {
+      gap: map-get($spacings, 6);
+    }
+  }
+
+  &__column {
+    display: flex;
+    flex: 1 1 120px;
+    flex-direction: column;
+    gap: map-get($spacings, 3);
+  }
+
+  &__column-heading {
+    margin: 0;
+    font-size: map-get($font-sizes, 2);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: $border-hover;
+  }
+
+  &__column-list {
+    display: flex;
+    flex-direction: column;
+    gap: map-get($spacings, 2);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__column-link {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: map-get($font-sizes, 2);
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: $primary;
+    }
+  }
+
+  &__bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  &__bottom-inner {
+    padding-block: map-get($spacings, 4);
+    color: $border-hover;
+    font-size: map-get($font-sizes, 1);
+    text-align: center;
+  }
+}
