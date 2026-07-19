@@ -2,8 +2,7 @@ import { FiSearch, FiUsers } from 'react-icons/fi'
 import './Header.scss'
 
 
-const Header = ({ onUsersClick = () => {} }) => {
-  return (
+const Header = ({ onUsersClick = () => {}, searchTerm = '', onSearchChange = () => {} }) => {  return (
     <header className="header">
       <div className="app-container header__inner">
         <a className="header__logo" href="/">
@@ -14,10 +13,12 @@ const Header = ({ onUsersClick = () => {} }) => {
         <div className="header__search">
           <FiSearch className="header__search-icon" size={18} />
           <input
-            type="text"
-            className="header__search-input"
-            placeholder="Search products..."
-          />
+    type="text"
+    className="header__search-input"
+    placeholder="Search products..."
+    value={searchTerm}
+    onChange={(event) => onSearchChange(event.target.value)}
+  />
         </div>
 
         <nav className="header__actions">

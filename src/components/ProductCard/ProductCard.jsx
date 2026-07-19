@@ -1,5 +1,4 @@
 import './ProductCard.scss'
-
 const ProductCard = ({ title, description, price, image }) => {
   return (
     <article className="product-card card card-hover">
@@ -15,7 +14,7 @@ const ProductCard = ({ title, description, price, image }) => {
       <div className="product-card__body">
         <h3 className="product-card__title">{title}</h3>
         <p className="product-card__description">{description}</p>
-        <span className="product-card__price">${price}</span>
+        <span className="product-card__price">{price}</span>
       </div>
     </article>
   )
